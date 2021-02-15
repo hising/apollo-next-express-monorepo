@@ -12,23 +12,23 @@
   "author": "givehug",
   "license": "ISC",
   "dependencies": {
-    "@apollo/react-hooks": "^3.1.4",
-    "@apollo/react-ssr": "^3.1.4",
-    "apollo-cache-inmemory": "^1.6.5",
-    "apollo-client": "^2.6.8",
+    "@apollo/react-hooks": "^4.0.0",
+    "@apollo/react-ssr": "^4.0.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
-    "graphql": "^15.0.0",
-    "graphql-tag": "^2.10.3",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.3.4",
-    "next-with-apollo": "^5.0.0",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.11.0",
+    "isomorphic-unfetch": "^3.1.0",
+    "next": "^10.0.6",
+    "next-with-apollo": "^5.1.1",
     "node-fetch": "^2.6.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "serialize-javascript": "^5.0.1"
   },
   "devDependencies": {
-    "@types/react": "16.9.33",
-    "typescript": "^3.8.3"
+    "@types/react": "17.0.2",
+    "typescript": "^4.1.5"
   }
 }

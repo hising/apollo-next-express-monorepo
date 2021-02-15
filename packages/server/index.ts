@@ -11,8 +11,7 @@ async function main() {
   await bootstrapApolloServer(app);
   await bootstrapClientApp(app);
 
-  app.listen(PORT, (err) => {
-    if (err) throw err;
+  app.listen(PORT, () => {
     console.log(`[ server ] ready on port ${PORT}`);
   });
 }
