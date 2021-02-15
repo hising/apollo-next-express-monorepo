@@ -17,4 +17,4 @@ yarn install
 yarn dev
 ```
 
-open `http://localhost:3000`
+open `http://localhost:3003`
