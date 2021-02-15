@@ -25,4 +25,12 @@ async function bootstrapApolloServer(expressApp) {
   apolloServer.applyMiddleware({ app: expressApp });
 }
 
-main();
+
+(async function (fn) {
+  try {
+    await fn();
+  } catch (e) {
+    console.error("Error starting application", e);
+  }
+
+})(main);
