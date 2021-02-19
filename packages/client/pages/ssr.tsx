@@ -53,6 +53,7 @@ const SSR = () => {
             <Report country={"Sweden"} />
             <Report country={"Finland"} />
             <Report country={"Denmark"} />
+            <Report country={"Iceland"} />
             <Report country={"Brazil"} />
 
             <button onClick={() => refetch()}>Refetch</button>
