@@ -18,3 +18,5 @@ yarn dev
 ```
 
 open `http://localhost:3003`
+
+GraphQL Playground at `http://localhost:3003/graphql`

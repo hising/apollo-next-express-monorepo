@@ -21,7 +21,9 @@ const NOSSR = () => {
   return (
     <Layout>
       <h1>This should be rendered on client side</h1>
-      <pre>Data: {data.books.length}</pre>
+        <ul>{data.books.map((book) => {
+            return <li>{book.title}</li>
+        })}</ul>
       <button onClick={() => refetch()}>Refetch</button>
     </Layout>
   );
