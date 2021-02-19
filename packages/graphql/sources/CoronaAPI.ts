@@ -7,10 +7,7 @@ export class CoronaAPI extends RESTDataSource {
     }
 
     async getReport(name) {
-        let response = this.get(`reports/${name}`).catch((e) => {
-            console.error(e);
-        });
-        console.log(response);
-        return response;
+        let response = await this.get(`reports/${name}`);
+        return response.data;
     }
 }
