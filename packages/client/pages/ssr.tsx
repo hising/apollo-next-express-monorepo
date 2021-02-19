@@ -5,9 +5,23 @@ import gql from "graphql-tag";
 import { withApollo } from "../apollo/apollo";
 
 const QUERY = gql`
-    query GetBooks {
-        books {
-            title
+    query GetUser {
+        getUser {
+            name {
+                first
+                last
+            }
+            location {
+                city
+                postcode
+            }
+            phone
+            cell
+            picture {
+                large
+                medium
+                thumbnail
+            }
         }
     }
 `;
@@ -21,9 +35,9 @@ const SSR = () => {
     return (
         <Layout>
             <h1>This should be rendered on server side</h1>
-            <ul>{data.books.map((book) => {
-                return <li>{book.title}</li>
-            })}</ul>
+            <div>
+                {data.getUser.name.first} {data.getUser.name.last}
+            </div>
             <button onClick={() => refetch()}>Refetch</button>
         </Layout>
     );
