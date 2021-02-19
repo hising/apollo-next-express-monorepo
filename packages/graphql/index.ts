@@ -2,49 +2,36 @@ import { ApolloServer, gql } from "apollo-server-express";
 import { CoronaAPI } from "./sources/CoronaAPI";
 
 const typeDefs = gql`
-    type Query {
-        hello: String
-        report: String
-    }
+  type Book {
+    title: String
+    author: String
+  }
 
-    type Country {
-        population: String
-        coord: String
-        geometry: String
-    }
-
-    type Report {
-        name: String
-        labels: [String]
-        confirmed: [Int]
-        deaths: [Int]
-        recovered: [Int]
-        country: Country
-    }
+  type Query {
+    books: [Book]
+  }
 `;
+
+const books = [
+    {
+        title: 'The Awakening',
+        author: 'Kate Chopin',
+    },
+    {
+        title: 'City of Glass',
+        author: 'Paul Auster',
+    },
+];
 
 const resolvers = {
     Query: {
-        hello: () => "Hello worsssld!",
-        report: async (_source, { report }, { dataSources }) => {
-            return dataSources.coronaAPI.getReport(report);
-        }
+        books: () => books,
     }
 };
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers,
-    dataSources: () => {
-        return {
-            coronaAPI: new CoronaAPI()
-        };
-    },
-    context: () => {
-        return {
-            foo: "bar"
-        };
-    }
+    resolvers
 });
 
 export default server;

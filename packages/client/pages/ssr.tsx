@@ -6,8 +6,7 @@ import { withApollo } from "../apollo/apollo";
 
 const QUERY = gql`
     query GetHello {
-        hello
-        report(report: Sweden)
+        report(report: "Sweden")
     }
 `;
 
