@@ -8,9 +8,9 @@ const typeDefs = gql`
     }
 
     type Country {
-        population: string
-        coord: string
-        geometry: string
+        population: String
+        coord: String
+        geometry: String
     }
 
     type Report {
