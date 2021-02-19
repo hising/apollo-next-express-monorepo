@@ -48,7 +48,7 @@ const typeDefs = gql`
         geometry: String
     }
 
-    type Report {
+    type Report @cacheControl(maxAge: 3600) {
         name: String
         labels: [String]
         confirmed: [Int]

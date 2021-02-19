@@ -7,7 +7,11 @@ export class CoronaAPI extends RESTDataSource {
     }
 
     async getReport(name) {
-        let response = await this.get(`reports/${name}`);
+        let response = await this.get(`reports/${name}`, null, {
+            cacheOptions: {
+                ttl: 3600
+            }
+        });
         return response.data;
     }
 }
