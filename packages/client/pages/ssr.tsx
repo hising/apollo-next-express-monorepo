@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import Layout from "../components/Layout";
 import gql from "graphql-tag";
 import { withApollo } from "../apollo/apollo";
+import { Report } from "../components/Report";
 
 const QUERY = gql`
     query GetUser {
@@ -48,15 +49,11 @@ const SSR = () => {
                 <code>getUser</code>: {data.getUser.name.first} {data.getUser.name.last}
             </div>
 
-            <div>
-                <code>getReport(name: "Norway")</code>
-                <h3>
-                    {data.getReport.name} - population {data.getReport.country.population}
-                </h3>
-                <p>Deaths: {data.getReport.deaths[data.getReport.deaths.length - 1]} deaths</p>
-                <p>Cases: {data.getReport.confirmed[data.getReport.confirmed.length - 1]} confirmed cases</p>
-                <p>Last updated: {data.getReport.labels[data.getReport.labels.length - 1]}</p>
-            </div>
+            <Report country={"Norway"} />
+            <Report country={"Sweden"} />
+            <Report country={"Finland"} />
+            <Report country={"Denmark"} />
+            <Report country={"Brazil"} />
 
             <button onClick={() => refetch()}>Refetch</button>
         </Layout>
