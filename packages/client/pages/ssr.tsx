@@ -23,6 +23,15 @@ const QUERY = gql`
                 thumbnail
             }
         }
+        getReport(name: "Norway") {
+            name
+            labels
+            confirmed
+            deaths
+            country {
+                population
+            }
+        }
     }
 `;
 
@@ -36,8 +45,19 @@ const SSR = () => {
         <Layout>
             <h1>This should be rendered on server side</h1>
             <div>
-                {data.getUser.name.first} {data.getUser.name.last}
+                <code>getUser</code>: {data.getUser.name.first} {data.getUser.name.last}
             </div>
+
+            <div>
+                <code>getReport(name: "Norway")</code>
+                <h3>
+                    {data.getReport.name} - population {data.getReport.country.population}
+                </h3>
+                <p>Deaths: {data.getReport.deaths[data.getReport.deaths.length - 1]} deaths</p>
+                <p>Cases: {data.getReport.confirmed[data.getReport.confirmed.length - 1]} confirmed cases</p>
+                <p>Last updated: {data.getReport.labels[data.getReport.labels.length - 1]}</p>
+            </div>
+
             <button onClick={() => refetch()}>Refetch</button>
         </Layout>
     );
